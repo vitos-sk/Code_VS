@@ -2,31 +2,31 @@ export const projects = [
   {
     title: "Todo App",
     description:
-      "A modern todo application with Firebase integration, dark mode, and real-time synchronization. Built with React and styled-components.",
+      "Eine moderne Todo-Anwendung mit Firebase-Integration, Dark Mode und Echtzeit-Synchronisation. Erstellt mit React und styled-components.",
     link: "https://example.com",
     tags: ["React", "Firebase", "Styled Components"],
     color: "green",
   },
   {
-    title: "E-commerce Store",
+    title: "E-Commerce Shop",
     description:
-      "Minimal React e-commerce shop with shopping cart, filters, and product search. Features clean UI and smooth animations.",
+      "Minimaler React E-Commerce-Shop mit Warenkorb, Filtern und Produktsuche. Zeichnet sich durch sauberes UI und flüssige Animationen aus.",
     link: "https://example.com",
     tags: ["React", "JavaScript", "CSS"],
     color: "amber",
   },
   {
-    title: "Weather Dashboard",
+    title: "Wetter-Dashboard",
     description:
-      "Beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.",
+      "Schönes Wetter-Dashboard mit standortbasierten Vorhersagen, interaktiven Karten und detaillierten Wetteranalysen.",
     link: "https://example.com",
     tags: ["React", "API", "Charts"],
     color: "cyan",
   },
   {
-    title: "Portfolio Website",
+    title: "Portfolio-Website",
     description:
-      "Personal portfolio website with modern design, smooth animations, and responsive layout. Built with React and Framer Motion.",
+      "Persönliche Portfolio-Website mit modernem Design, flüssigen Animationen und responsivem Layout. Erstellt mit React und Framer Motion.",
     link: "https://example.com",
     tags: ["React", "Framer Motion", "Vite"],
     color: "green",

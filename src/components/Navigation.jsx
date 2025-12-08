@@ -143,11 +143,11 @@ const ThemeButton = styled(motion.button)`
 `;
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Start", href: "#home" },
+  { label: "Über mich", href: "#about" },
+  { label: "Fähigkeiten", href: "#skills" },
+  { label: "Projekte", href: "#projects" },
+  { label: "Kontakt", href: "#contact" },
 ];
 
 export default function Navigation() {
@@ -207,7 +207,7 @@ export default function Navigation() {
           onClick={toggleTheme}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          aria-label="Toggle theme"
+          aria-label="Theme umschalten"
         >
           {theme.name === "dark" ? <Sun size={18} /> : <Moon size={18} />}
         </ThemeButton>

@@ -294,7 +294,7 @@ export default function Projects() {
         viewport={{ once: false, margin: "-50px" }}
         variants={containerVariants}
       >
-        <SectionTitle variants={cardVariants}>Projects</SectionTitle>
+        <SectionTitle variants={cardVariants}>Projekte</SectionTitle>
 
         <Grid variants={containerVariants}>
           {projects.map((project, index) => (

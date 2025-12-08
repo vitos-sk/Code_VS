@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
-import { Terminal, ArrowDown } from "lucide-react";
+import { Terminal, ArrowDown, Code2, Server, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Section = styled.section`
@@ -187,6 +187,70 @@ const ScrollIndicator = styled(motion.div)`
   }
 `;
 
+const IconBadge = styled(motion.div)`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: ${({ theme }) =>
+    theme.name === "dark" ? "rgba(13, 17, 23, 0.6)" : "rgba(255, 255, 255, 0.6)"};
+  border: 1px solid ${({ theme }) => theme.colors.accent.green}40;
+  border-radius: 6px;
+  margin-left: 1rem;
+  backdrop-filter: blur(10px);
+  font-family: ${({ theme }) => theme.fonts.mono};
+  font-size: 0.85rem;
+  color: ${({ theme }) => theme.colors.accent.green};
+  text-shadow: 0 0 5px ${({ theme }) => theme.colors.accent.green}60;
+
+  svg {
+    color: ${({ theme }) => theme.colors.accent.green};
+    filter: drop-shadow(0 0 3px ${({ theme }) => theme.colors.accent.green}60);
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+`;
+
+const DecorativeIcons = styled(motion.div)`
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  opacity: 0.3;
+  z-index: -1;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  svg {
+    color: ${({ theme }) => theme.colors.accent.green};
+    filter: drop-shadow(0 0 10px ${({ theme }) => theme.colors.accent.green}40);
+    transition: all 0.3s ease;
+  }
+`;
+
+const floating = keyframes`
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+`;
+
+const FloatingIcon = styled(motion.div)`
+  animation: ${floating} 3s ease-in-out infinite;
+  animation-delay: ${({ delay }) => delay || 0}s;
+`;
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -222,7 +286,7 @@ const scrollVariants = {
 };
 
 const typingText =
-  "I create fast, modern and minimalistic web applications with React, JavaScript, and cutting-edge web technologies. Building elegant interfaces that users love.";
+  "Vitalii.  Fullstack-Entwickler. Moderne Weblösungen mit Fokus auf Performance. verwandle Ideen in optimierte, benutzerfreundliche und skalierbare Oberflächen. Mein Standort: Freiburg, Deutschland.";
 
 export default function Hero() {
   const [displayedText, setDisplayedText] = useState("");
@@ -262,10 +326,30 @@ export default function Hero() {
         </TerminalPrompt>
 
         <Title variants={itemVariants}>
-          Hi, I'm <Highlight>Vitalii</Highlight>
+          Hallo, ich bin <Highlight>Vitalii</Highlight>
           <br />
-          Fullstack Developer
+          Fullstack-Entwickler
         </Title>
+
+        <motion.div
+          variants={itemVariants}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "1rem",
+            marginTop: "1rem",
+            marginBottom: "1rem",
+          }}
+        >
+          <IconBadge whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Code2 size={20} />
+            <span>Frontend</span>
+          </IconBadge>
+          <IconBadge whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Server size={20} />
+            <span>Backend</span>
+          </IconBadge>
+        </motion.div>
 
         <Subtitle variants={itemVariants}>
           {displayedText}
@@ -275,8 +359,24 @@ export default function Hero() {
 
       <ScrollIndicator variants={scrollVariants} animate="animate">
         <ArrowDown size={20} />
-        <span>scroll</span>
+        <span>scrollen</span>
       </ScrollIndicator>
+
+      <DecorativeIcons
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ delay: 1, duration: 1 }}
+      >
+        <FloatingIcon delay={0}>
+          <Code2 size={40} />
+        </FloatingIcon>
+        <FloatingIcon delay={0.5}>
+          <Server size={40} />
+        </FloatingIcon>
+        <FloatingIcon delay={1}>
+          <Sparkles size={40} />
+        </FloatingIcon>
+      </DecorativeIcons>
     </Section>
   );
 }

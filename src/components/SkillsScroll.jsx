@@ -280,7 +280,7 @@ const renderSkillCard = (skill, index, isDuplicate = false) => {
 export default function SkillsScroll() {
   return (
     <Section id="skills">
-      <SectionTitle>Skills</SectionTitle>
+      <SectionTitle>Fähigkeiten</SectionTitle>
       <ScrollWrapper>
         <ScrollContainer>
           <SkillsWrapper>

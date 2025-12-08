@@ -172,7 +172,7 @@ export default function Footer() {
         </SocialLinks>
 
         <Copyright>
-          © {currentYear} Vitalii. Made with <HeartIcon size={14} /> using React & Vite
+          © {currentYear} Vitaliy. Erstellt mit <HeartIcon size={14} /> mit React & Vite
         </Copyright>
       </Content>
     </Wrapper>

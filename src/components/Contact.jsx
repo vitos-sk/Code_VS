@@ -405,9 +405,10 @@ export default function Contact() {
         viewport={{ once: false, margin: "-50px" }}
         variants={containerVariants}
       >
-        <SectionTitle variants={itemVariants}>Get in touch</SectionTitle>
+        <SectionTitle variants={itemVariants}>Kontakt aufnehmen</SectionTitle>
         <Subtitle variants={itemVariants}>
-          Have a project in mind or want to collaborate? Feel free to reach out!
+          Haben Sie ein Projekt im Kopf oder möchten Sie zusammenarbeiten? Kontaktieren
+          Sie mich gerne!
         </Subtitle>
 
         <Content variants={itemVariants}>
@@ -437,24 +438,24 @@ export default function Contact() {
           <ContactForm onSubmit={handleSubmit} variants={itemVariants}>
             <InputGroup>
               <Label htmlFor="name">Name</Label>
-              <Input type="text" id="name" name="name" placeholder="Your name" required />
+              <Input type="text" id="name" name="name" placeholder="Ihr Name" required />
             </InputGroup>
             <InputGroup>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">E-Mail</Label>
               <Input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="your.email@example.com"
+                placeholder="ihre.email@beispiel.de"
                 required
               />
             </InputGroup>
             <InputGroup>
-              <Label htmlFor="message">Message</Label>
+              <Label htmlFor="message">Nachricht</Label>
               <TextArea
                 id="message"
                 name="message"
-                placeholder="Your message..."
+                placeholder="Ihre Nachricht..."
                 required
               />
             </InputGroup>
@@ -463,7 +464,7 @@ export default function Contact() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Send Message
+              Nachricht senden
               <Send size={18} />
             </SubmitButton>
           </ContactForm>
