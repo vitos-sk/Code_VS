@@ -131,7 +131,7 @@ const HeartIcon = styled(Heart)`
 const socialLinks = [
   {
     icon: Github,
-    href: "https://github.com",
+    href: "https://github.com/vitos-sk",
     label: "GitHub",
   },
   {
@@ -141,7 +141,7 @@ const socialLinks = [
   },
   {
     icon: Mail,
-    href: "mailto:vitalii@example.com",
+    href: "onlihash@gmail.com",
     label: "Email",
   },
 ];

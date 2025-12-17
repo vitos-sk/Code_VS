@@ -1,34 +1,33 @@
 export const projects = [
   {
-    title: "Todo App",
+    title: "Blog-Plattform",
     description:
-      "Eine moderne Todo-Anwendung mit Firebase-Integration, Dark Mode und Echtzeit-Synchronisation. Erstellt mit React und styled-components.",
-    link: "https://example.com",
-    tags: ["React", "Firebase", "Styled Components"],
+      "Moderne Blog-Plattform mit der Möglichkeit, Artikel zu erstellen und zu bearbeiten, Kommentarsystem und Benutzerauthentifizierung.",
+    github: "https://github.com/vitos-sk/BLOG",
+    demo: "https://your-deployed-blog.com",
+    tags: ["React", "Node.js", "MongoDB"],
     color: "green",
+    image: "blog-project.png",
   },
   {
-    title: "E-Commerce Shop",
+    title: "TrueHome",
     description:
-      "Minimaler React E-Commerce-Shop mit Warenkorb, Filtern und Produktsuche. Zeichnet sich durch sauberes UI und flüssige Animationen aus.",
-    link: "https://example.com",
-    tags: ["React", "JavaScript", "CSS"],
-    color: "amber",
-  },
-  {
-    title: "Wetter-Dashboard",
-    description:
-      "Schönes Wetter-Dashboard mit standortbasierten Vorhersagen, interaktiven Karten und detaillierten Wetteranalysen.",
-    link: "https://example.com",
-    tags: ["React", "API", "Charts"],
+      "Moderne Portfolio-Website für ein spanisches Bauunternehmen. Präsentiert abgeschlossene Bauprojekte mit interaktiven Galerien und responsivem Design.",
+    github: "https://github.com/vitos-sk/TrueHome_Frontend",
+    demo: "https://truehome.vercel.app/",
+    tags: ["React", "Vite", "JavaScript", "CSS"],
     color: "cyan",
+    image: "truehome-project.png",
   },
   {
-    title: "Portfolio-Website",
+    title: "TechHub E-Commerce",
     description:
-      "Persönliche Portfolio-Website mit modernem Design, flüssigen Animationen und responsivem Layout. Erstellt mit React und Framer Motion.",
-    link: "https://example.com",
-    tags: ["React", "Framer Motion", "Vite"],
-    color: "green",
+      "Vollständige E-Commerce-Plattform für Elektronik mit Produktkatalog, Warenkorbsystem, Benutzer-Authentifizierung und Admin-Panel.",
+    github: "https://github.com/vitos-sk/TechHub",
+    demo: "http://vitalii-shiluk-10-12-25.result-student.tw1.ru/",
+    tags: ["React", "Node.js", "MongoDB", "Redux", "Docker", "Express"],
+    color: "amber",
+    image: "techhub-project.png",
   },
+  // weitere Projekte...
 ];

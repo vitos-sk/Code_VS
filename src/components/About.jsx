@@ -345,20 +345,20 @@ export default function About() {
         variants={containerVariants}
       >
         <SectionTitle variants={itemVariants}>
-          Vitaliy. Ihr Partner für professionelles Frontend.
+          Vitalii. Ihr Partner für professionelle Fullstack-Entwicklung.
         </SectionTitle>
 
         <Content variants={itemVariants}>
           <TextBlock>
             <p>
-              Mit 24 Jahren bin ich ein spezialisierter Frontend-Entwickler mit starkem
+              Mit 24 Jahren bin ich ein spezialisierter Fullstack-Entwickler mit starkem
               Fokus auf UI/UX-Design. Meine Leidenschaft gilt sauberem, effizientem Code
-              und einer herausragenden User Experience. Ich nutze aktuelle Technologien,
-              um Produkte zu schaffen, die nicht nur visuell ansprechend, sondern auch
+              und einer herausragenden User Experience. Ich nutze moderne Technologien, um
+              Produkte zu schaffen, die nicht nur visuell ansprechend, sondern auch
               leistungsstark sind.
             </p>
             <p>
-              Ich lebe und arbeite in Freiburg, Deutschland. Ich freue mich auf die
+              Ich lebe und arbeite in Freiburg, Deutschland, und freue mich auf die
               Zusammenarbeit in internationalen Teams.
             </p>
           </TextBlock>
@@ -377,7 +377,7 @@ export default function About() {
               </IconContainer>
               <InfoContent>
                 <InfoLabel>Role</InfoLabel>
-                <InfoValue>Frontend-Entwickler</InfoValue>
+                <InfoValue>Fullstack-Entwickler</InfoValue>
               </InfoContent>
             </InfoItem>
             <InfoItem

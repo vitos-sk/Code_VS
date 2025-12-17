@@ -320,7 +320,7 @@ export default function Hero() {
         <TerminalPrompt variants={itemVariants}>
           <Terminal size={18} />
           <span>
-            <PromptText>vitalii@portfolio</PromptText>:~${" "}
+            <PromptText>vs@portfolio</PromptText>:~${" "}
             <span className="console-cursor"></span>
           </span>
         </TerminalPrompt>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { projects } from "../data/projects";
 
 const Section = styled.section`
@@ -110,17 +110,16 @@ const getAccentColor = (theme, color) => {
   return colorMap[color] ?? theme.colors.accent.green;
 };
 
-const ProjectCard = styled(motion.a)`
-  display: block;
+const ProjectCard = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
   background: ${({ theme }) =>
     theme.name === "dark" ? "rgba(13, 17, 23, 0.8)" : "rgba(255, 255, 255, 0.8)"};
   border: 1px solid ${({ theme, color }) => getAccentColor(theme, color)}40;
   border-radius: 8px;
-  padding: 2rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
   backdrop-filter: blur(10px);
   font-family: ${({ theme }) => theme.fonts.mono};
 
@@ -142,6 +141,7 @@ const ProjectCard = styled(motion.a)`
     transform-origin: left;
     transition: transform 0.3s ease;
     animation: gradient-flow 3s linear infinite;
+    z-index: 2;
   }
 
   @keyframes gradient-flow {
@@ -153,23 +153,6 @@ const ProjectCard = styled(motion.a)`
     }
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(
-      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      ${({ theme, color }) => getAccentColor(theme, color)}10 0%,
-      transparent 50%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-
   &:hover {
     border-color: ${({ theme, color }) => getAccentColor(theme, color)};
     box-shadow: 0 0 20px ${({ theme, color }) => getAccentColor(theme, color)}60,
@@ -179,11 +162,53 @@ const ProjectCard = styled(motion.a)`
     &::before {
       transform: scaleX(1);
     }
+  }
+`;
 
+const ProjectImage = styled.div`
+  width: 100%;
+  height: 200px;
+  background-image: url(${({ $image }) => $image});
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      ${({ theme }) =>
+          theme.name === "dark" ? "rgba(13, 17, 23, 0.4)" : "rgba(255, 255, 255, 0.4)"}
+        100%
+    );
+    transition: background 0.3s ease;
+  }
+
+  ${ProjectCard}:hover & {
     &::after {
-      opacity: 1;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        ${({ theme }) =>
+            theme.name === "dark" ? "rgba(13, 17, 23, 0.2)" : "rgba(255, 255, 255, 0.2)"}
+          100%
+      );
     }
   }
+`;
+
+const ProjectContent = styled.div`
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 
 const ProjectHeader = styled.div`
@@ -213,13 +238,36 @@ const ProjectTitle = styled.h3`
 
 const IconWrapper = styled.div`
   display: flex;
-  gap: 0.5rem;
-  opacity: 0;
-  transition: opacity 0.3s ease, color 0.3s ease;
-  color: ${({ theme, color }) => getAccentColor(theme, color)};
+  gap: 0.75rem;
+  align-items: center;
+`;
 
-  ${ProjectCard}:hover & {
-    opacity: 1;
+const IconLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: ${({ theme }) =>
+    theme.name === "dark" ? "rgba(13, 17, 23, 0.6)" : "rgba(255, 255, 255, 0.6)"};
+  border: 1px solid ${({ theme, color }) => getAccentColor(theme, color)}40;
+  color: ${({ theme, color }) => getAccentColor(theme, color)};
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background: ${({ theme, color }) => getAccentColor(theme, color)}20;
+    border-color: ${({ theme, color }) => getAccentColor(theme, color)};
+    color: ${({ theme, color }) => getAccentColor(theme, color)};
+    box-shadow: 0 0 15px ${({ theme, color }) => getAccentColor(theme, color)}40;
+    transform: translateY(-2px) scale(1.1);
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
   }
 `;
 
@@ -234,6 +282,7 @@ const Tags = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: auto;
 `;
 
 const Tag = styled.span`
@@ -300,26 +349,48 @@ export default function Projects() {
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
               variants={cardVariants}
               color={project.color || "blue"}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <ProjectHeader>
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <IconWrapper color={project.color || "blue"}>
-                  <ExternalLink size={18} />
-                </IconWrapper>
-              </ProjectHeader>
-              <ProjectDescription>{project.description}</ProjectDescription>
-              <Tags>
-                {project.tags.map((tag, tagIndex) => (
-                  <Tag key={tagIndex}>{tag}</Tag>
-                ))}
-              </Tags>
+              {project.image && <ProjectImage $image={project.image} />}
+
+              <ProjectContent>
+                <ProjectHeader>
+                  <ProjectTitle>{project.title}</ProjectTitle>
+                  <IconWrapper>
+                    {project.github && (
+                      <IconLink
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color={project.color || "blue"}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github />
+                      </IconLink>
+                    )}
+                    {project.demo && (
+                      <IconLink
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color={project.color || "blue"}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink />
+                      </IconLink>
+                    )}
+                  </IconWrapper>
+                </ProjectHeader>
+                <ProjectDescription>{project.description}</ProjectDescription>
+                <Tags>
+                  {project.tags.map((tag, tagIndex) => (
+                    <Tag key={tagIndex}>{tag}</Tag>
+                  ))}
+                </Tags>
+              </ProjectContent>
             </ProjectCard>
           ))}
         </Grid>
